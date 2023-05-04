@@ -152,35 +152,40 @@
         <div class="section-header">
           <span>Frequently Asked Questions</span>
           <h2>Frequently Asked Questions</h2>
+
         </div>
 
         <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="200">
           <div class="col-lg-10">
-            <div class="accordion accordion-flush" id="faqlist">
 
+            <div class="accordion accordion-flush" id="faqlist">
+              
               {% for faq in faq %}
               <div class="accordion-item">
                 <h3 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-{{ loop.index }}">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-{{faq.id}}">
                     <i class="bi bi-question-circle question-icon"></i>
-                    {{ faq.question }}
+                    {{faq.question}}
                   </button>
                 </h3>
-                <div id="faq-content-{{ loop.index }}" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                <div id="faq-content-{{faq.id}}" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                   <div class="accordion-body">
-                    {{ faq.answer }}
+                    {{faq.answer}}
                   </div>
                 </div>
               </div><!-- # Faq item-->
               {% endfor %}
+
           
             </div>
+
           </div>
         </div>
 
       </div>
     </section><!-- End Frequently Asked Questions Section -->
 {% endblock  %}
+
 
 
   </main><!-- End #main -->
