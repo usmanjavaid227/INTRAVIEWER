@@ -1,15 +1,18 @@
 from django.shortcuts import render
-from .models import Card
+from .models import Card,Faq
 
 # Create your views here.
 def index(request):
     cards = Card.objects.all()
-    context = {'cards': cards}
+    faq= Faq.objects.all()
+    context = {'cards': cards,'faq':faq}
     return render(request,'core/index.html',context)
 
 
 def about(request):
-    return render(request,'core/about.html')
+    faq=Faq.objects.all()
+    context={'faq':faq}
+    return render(request,'core/about.html',context)
 def contact(request):
     return render(request,'core/contact.html')
 def feedback(request):

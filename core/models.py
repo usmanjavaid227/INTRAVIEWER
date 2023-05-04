@@ -10,3 +10,11 @@ class Card(models.Model):
     def __str__(self):
         return self.title
 
+# model for faq
+class Faq(models.Model):
+    question = models.CharField(max_length=200)
+    answer = models.TextField(max_length=300)
+
+    def __str__(self):
+        return self.question
+    

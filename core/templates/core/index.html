@@ -371,78 +371,36 @@
         <div class="section-header">
           <span>Frequently Asked Questions</span>
           <h2>Frequently Asked Questions</h2>
-
         </div>
 
         <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="200">
           <div class="col-lg-10">
-
             <div class="accordion accordion-flush" id="faqlist">
 
+              {% for faq in faq %}
               <div class="accordion-item">
                 <h3 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-{{ loop.index }}">
                     <i class="bi bi-question-circle question-icon"></i>
-                    How do I use INTRAVIEWER ?
+                    {{ faq.question }}
                   </button>
                 </h3>
-                <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                <div id="faq-content-{{ loop.index }}" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                   <div class="accordion-body">
-                   <p>  Step 1: Select interview questions from the library</p>
-                   <p>  Step 2: Optimise your responses using expert tips and sentiment analysis</p>
-                   <p>  Step 3: Record yourself and get an Emotion Intelligence Index</p>
-                   <p>  Step 4: Playback to indentify areas of improvement and track progress </p>                 </div>
+                    {{ faq.answer }}
+                  </div>
                 </div>
               </div><!-- # Faq item-->
-
-              <div class="accordion-item">
-                <h3 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
-                    <i class="bi bi-question-circle question-icon"></i>
-                    Can I use INTRAVIEWER on my phone?
-                  </button>
-                </h3>
-                <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                  <div class="accordion-body">
-                    Yes. INTRAVIEWER is a browser based app and can run on your phone, tablet or laptop ONLY on a Google Chrome browser.                  </div>
-                </div>
-              </div><!-- # Faq item-->
-
-              <div class="accordion-item">
-                <h3 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
-                    <i class="bi bi-question-circle question-icon"></i>
-                    Can I use INTRAVIEWER on my phone?
-                  </button>
-                </h3>
-                <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                  <div class="accordion-body">
-                    Yes. INTRAVIEWER is a browser based app and can run on your phone, tablet or laptop ONLY on a Google Chrome browser.                  </div>
-                </div>
-              </div><!-- # Faq item-->
-
-              <div class="accordion-item">
-                <h3 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4">
-                    <i class="bi bi-question-circle question-icon"></i>
-                    Can I use INTRAVIEWER on my phone?
-                  </button>
-                </h3>
-                <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                  <div class="accordion-body">
-                    Yes. INTRAVIEWER is a browser based app and can run on your phone, tablet or laptop ONLY on a Google Chrome browser.                  </div>
-                </div>
-              </div><!-- # Faq item-->
-
+              {% endfor %}
           
             </div>
-
           </div>
         </div>
 
       </div>
     </section><!-- End Frequently Asked Questions Section -->
 {% endblock  %}
+
 
   </main><!-- End #main -->
 
