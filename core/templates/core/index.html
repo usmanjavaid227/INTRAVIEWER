@@ -1,0 +1,489 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block Hero_section %}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center">
+    <div class="container">
+      <div class="row gy-4 d-flex justify-content-between">
+        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h2 data-aos="fade-up">Ace your interview with <span id="Intraviewer" class="font-weight-bold"> INTRAVIEWER</span> and land a Job worth loving</h2>
+          <p data-aos="fade-up" data-aos-delay="100" class="lead py-2" style="font-size: large;"> AI enabled interview prepration tool for job seakers. Practice through INTRAVIEWER and receive real time unbiased feedback.
+            Playback to identify areas of improvement. Make required adjustments, monitor progress and gain confidence to crack your next interview. </p>
+         
+          
+          <!-- <form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
+            <input type="text" class="form-control" placeholder="e-mail">
+            <button type="submit" class="btn btn-primary">Search</button>
+          </form> -->
+
+          
+        </div>
+        
+
+        <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
+          <img src="{% static 'core/VisitorAssets/img/hero-img.svg' %}"  class="img-fluid mb-3 mb-lg-0" alt="">
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero Section -->
+{% endblock Hero_section %}
+
+{% block Partner_section %}
+  <!-- ====== Partner Section ======= -->
+    <section class="bg-light py-5">
+      <div class="container py-5">
+        <div class="row mb-4">
+          <div class="lc-block text-center">
+            <div editable="">
+              <h2 class="fw-bold display-4" style="color:#05192D">Trusted partners</h2>
+            </div>
+            <!-- <div class="section-header">
+              <span>About Us</span>
+              <h2>About Us</h2>
+            </div> -->
+          </div>
+          <div class="lc-block text-center">
+            <div editable="rich">
+              <p class="lead">professional from top universities trust our platform for Practice</p>
+            </div>
+          </div>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="200" class="row row-cols-3 justify-content-center row-cols-lg-6 gap-lg-0">
+          <div class="col my-5 text-center">
+            <div class="lc-block">
+              <img class="img-fluid" src="{% static "core/VisitorAssets/img/PUGC.svg" %}" width="110" height="">
+            </div>
+            <!-- /lc-block -->
+          </div>
+          <div class="col my-5 text-center">
+            <div class="lc-block">
+              <img class="img-fluid" src="{% static "core/VisitorAssets/img/UMT.svg" %}" width="128" height="">
+            </div>
+            <!-- /lc-block -->
+          </div>
+          <div class="col my-5 text-center">
+            <div class="lc-block">
+              <img class="img-fluid" src="{% static "core/VisitorAssets/img/UET.svg" %}" width="128" height="">
+            </div>
+            <!-- /lc-block -->
+          </div>
+          <div class="col my-5 text-center">
+            <div class="lc-block">
+              <img class="img-fluid" src="{% static "core/VisitorAssets/img/LUMS.svg" %}" width="128" height="">
+            </div>
+            <!-- /lc-block -->
+          </div>
+          <div class="col my-5 text-center">
+            <div class="lc-block">
+              <img class="img-fluid" src="{% static "core/VisitorAssets/img/IqbalOpen.svg" %}" width="128" height="">
+            </div>
+            <!-- /lc-block -->
+          </div>
+          <div class="col my-5 text-center">
+            <div class="lc-block">
+              <img class="img-fluid" src="{% static "core/VisitorAssets/img/GovtFaisalabad.svg" %}" width="128" height="">
+            </div>
+            <!-- /lc-block -->
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock Partner_section %}
+
+<main id="main">
+
+
+
+{% block About_Section %}
+    <br><br>
+    <div class="section-header" data-aos="fade-up" data-aos-delay="100">
+      <span>About Us</span>
+      <h2>About Us</h2>
+    </div>
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about pt-0">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row gy-4">
+          <div class="col-lg-6 position-relative align-self-start order-lg-last order-first">
+            <img src="{% static "core/VisitorAssets/img/about.jpg" %}" class="img-fluid" alt="">
+            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
+          </div>
+          <div class="col-lg-6 content order-last  order-lg-first">
+            <!-- <h3>About Us</h3> -->
+            <p class="lead">
+              Our goal is to build an AI enabled interview prepration platform for job seekers to prepare them for their next interview and help them to get their dream job.
+            </p>
+            
+            <ul>
+              <li data-aos="fade-up" data-aos-delay="100">
+                <i class="bi bi-quote"></i>
+                <div>
+                  <h5>Sentiment analysis</h5>
+                  <p>By using sentiment analysis, you can prepare responses to the most commonly asked interview questions</p>
+                </div>
+              </li>
+              <li data-aos="fade-up" data-aos-delay="200">
+                <i class="bi bi-check"></i>
+                <div>
+                  <h5>AI feedback</h5>
+                  <p>Practice through Mock Interviews and receive real time unbiased feedback.</p>
+                </div>
+              </li>
+              <li data-aos="fade-up" data-aos-delay="300">
+                <i class="bi bi-broadcast"></i>
+                <div>
+                  <h5>Emotion intalligance</h5>
+                  <p>preview to identify the areas of improvement. Monitor progress and gain confidence to crack your next interview.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+{% endblock About_Section %}
+
+{% block Features_Section %}
+    <!-- ======= Call To Action Section ======= -->
+    <section id="call-to-action" class="call-to-action">
+      <div class="container aos-init aos-animate" data-aos="zoom-out">
+        <div class="row justify-content-center"><div class="col-lg-8 text-center">
+          <h3>Set yourself up for success with INTRAVIEWER.</h3>
+          <p>DON'T WASTE YOUR INTERVIEW OPPORTUNITIES</p> 
+           <a class="cta-btn" href="#">Call To Action</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  <!-- End Call To Action Section -->
+{% endblock Features_Section %}
+
+{% block Services_Section %}
+    <!-- ======= Services Section ======= -->
+    <section id="service" class="services pt-0">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <span>Why INTRAVIEWER</span>
+          <h2>Why INTRAVIEWER ?</h2>
+        </div>
+            <div class="row justify-content-center">
+              <div class="col-lg-8 text-center">
+                <p class="lead">Most job seekers are unable to give their best in interview due to anxiety and nervousness. INTRAVIEWER provide a platform to gain confidence through practice and real-time feedback.Prepare you for your next interview to get you more job offers.</p>
+              </div>
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card">
+              <div class="card-img">
+                <img src="{% static "core/VisitorAssets/img/First Impression.jpg" %}" alt="" class="img-fluid">
+              </div>
+              <h3><a href="#" class="stretched-link">First Impression</a></h3>
+              <p>Studies show that 55% of first impressions in interviews are based on non-verbal cues like facial expressions.People have less control over facial expressions than their verbal communication</p>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="card">
+              <div class="card-img">
+                <img src="{% static "core/VisitorAssets/img/confidence.jpg" %}" alt="" class="img-fluid">
+              </div>
+              <h3><a href="#" class="stretched-link">confidance</a></h3>
+              <p>This shows how confident a candidate is based on the analysis of body movement, stress, anxiety, voice tone and posture.</p>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="card">
+              <div class="card-img">
+                <img src="{% static "core/VisitorAssets/img/communaction.jpg" %}" alt="" class="img-fluid">
+              </div>
+              <h3><a href="#" class="stretched-link">Communication</a></h3>
+              <p>This is more about the candidate's speaking style. Is the voice too loud or low? Are they speaking too fast or slow? Are they taking too many long pauses? This will help you get the details on their communication skills.</p>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="card">
+              <div class="card-img">
+                <img src="{% static "core/VisitorAssets/img/behaviour analysis.jpg" %}" alt="" class="img-fluid">
+              </div>
+              <h3><a href="#" class="stretched-link">Behavior analysis</a></h3>
+              <p>You can find more about the body movements, like eye movement, head movement and more. We can find out if a candidate is reading the answer on the screen using our AI.</p>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="card">
+              <div class="card-img">
+                <img src="{% static "core/VisitorAssets/img/emotion.jpg" %}" alt="" class="img-fluid">
+              </div>
+              <h3><a href="#" class="stretched-link">Emotion intelligance</a></h3>
+              <p>Recruiters assess Emotional Intelligence to identify the candidates with the right attitude & mindset PROCESS</p>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="card">
+              <div class="card-img">
+                <img src="{% static "core/VisitorAssets/img/professional.jpg" %}" alt="" class="img-fluid">
+              </div>
+              <h3><a href="#" class="stretched-link">professionlism</a></h3>
+              <p>Develop your professional look, Which enhance your positive attitude.</p>
+            </div>
+          </div><!-- End Card Item -->
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+{% endblock Services_Section %}
+
+
+{% block Pricing %}
+  <!-- ======= Pricing Section ======= -->
+  <br>
+    <section id="pricing" class="pricing pt-0">
+      <div class="container aos-init aos-animate" data-aos="fade-up">
+        <div class="section-header"> 
+          <span>Pricing</span>
+          <h2>Pricing</h2>
+        </div>
+        <div class="row gy-4">
+          <div class="col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+            <div class="pricing-item">
+              <h3>Free Plan</h3>
+              <h4><sup>$</sup>0<span> / month</span></h4>
+              <ul>
+                <li><i class="bi bi-check"></i>Access to free-level interviews</li>
+                <li><i class="bi bi-check"></i> 2 Tries</li>
+                <li><i class="bi bi-check"></i> 5 minutes of Duration</li>
+                <li><i class="bi bi-check"></i> AI-assisted feedback</li>
+                <li><i class="bi bi-check"></i> Limited support</li>
+                <li><i class="bi bi-check"></i> Interview Scorecard</li>
+                <li class="na"><i class="bi bi-x"></i> <span>Access to Interview Recording</span></li>
+                <li class="na"><i class="bi bi-x"></i> <span>Real-time analytics on user adoption, usage, and performance</span></li>
+              </ul> <a href="#" class="buy-btn">Buy Now</a>
+            </div>
+          </div>
+          <div class="col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+            <div class="pricing-item featured"><h3>Business Plan</h3>
+              <h4><sup>$</sup>15<span> / month</span></h4>
+              <ul>
+                <li><i class="bi bi-check"></i> Access to ALL interviews</li>
+                <li><i class="bi bi-check"></i> upto 15 tries</li>
+                <li><i class="bi bi-check"></i> 10 minutes of Duration</li>
+                <li><i class="bi bi-check"></i> AI-assisted feedback</li>
+                <li><i class="bi bi-check"></i> priority support</li>
+                <li><i class="bi bi-check"></i> Interview Scorecard with enhanced dashboard</li>
+                <li><i class="bi bi-check"></i> Answer videos stored up to 1 hour</li>
+                <li><i class="bi bi-check"></i> Real-time analytics on facial, voice tone performance</li>
+                
+              </ul> 
+              <a href="#" class="buy-btn">Buy Now</a>
+            </div>
+          </div>
+          <div class="col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300"><div class="pricing-item">
+            <h3>Business Plan</h3>
+            <h4><sup>$</sup>49<span> / month</span></h4>
+            <ul>
+              <li><i class="bi bi-check"></i> Access to ALL interviews</li>
+                <li><i class="bi bi-check"></i> unlimited tries</li>
+                <li><i class="bi bi-check"></i> 15 minutes of Duration</li>
+                <li><i class="bi bi-check"></i> AI-assisted feedback</li>
+                <li><i class="bi bi-check"></i> Dedicated support</li>
+                <li><i class="bi bi-check"></i> Interview Scorecard with enhanced dashboard, Personalized feedback</li>
+                <li><i class="bi bi-check"></i> Lifetime Access to Interview Recording </li>
+                <li><i class="bi bi-check"></i> Real-time analytics on user adoption, usage, and performance</li>
+                
+            </ul>
+             <a href="#" class="buy-btn">Buy Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Pricing Section -->
+{% endblock Pricing %}
+
+{% block Testimonial %}
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
+      <div class="container">
+
+        <div class="slides-1 swiper" data-aos="fade-up">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="{% static "core/VisitorAssets/img/testimonials/testimonials-1.jpg" %}" class="testimonial-img" alt="">
+                <h3>Saul Goodman</h3>
+                <h4>Ceo &amp; Founder</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  I failed 5 interviews and could not figure out what I was doing wrong. With InterviewMate, I got real time feedback and improved my interview skills. Now, am confident of cracking the next interview.
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="{% static "core/VisitorAssets/img/testimonials/testimonials-2.jpg" %}" class="testimonial-img" alt="">
+                <h3>Sara Wilsson</h3>
+                <h4>Designer</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  I failed 5 interviews and could not figure out what I was doing wrong. With InterviewMate, I got real time feedback and improved my interview skills. Now, am confident of cracking the next interview.
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="{% static "core/VisitorAssets/img/testimonials/testimonials-3.jpg" %}" class="testimonial-img" alt="">
+                <h3>Jena Karlis</h3>
+                <h4>Store Owner</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  I failed 5 interviews and could not figure out what I was doing wrong. With InterviewMate, I got real time feedback and improved my interview skills. Now, am confident of cracking the next interview.
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="{% static "core/VisitorAssets/img/testimonials/testimonials-4.jpg" %}" class="testimonial-img" alt="">
+                <h3>Matt Brandon</h3>
+                <h4>Freelancer</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  I failed 5 interviews and could not figure out what I was doing wrong. With InterviewMate, I got real time feedback and improved my interview skills. Now, am confident of cracking the next interview.                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="{% static "core/VisitorAssets/img/testimonials/testimonials-5.jpg" %}" class="testimonial-img" alt="">
+                <h3>John Larson</h3>
+                <h4>Entrepreneur</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  I failed 5 interviews and could not figure out what I was doing wrong. With InterviewMate, I got real time feedback and improved my interview skills. Now, am confident of cracking the next interview.                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+{% endblock Testimonial %}
+
+{% block FAQ %}
+    <!-- ======= Frequently Asked Questions Section ======= -->
+    <section id="faq" class="faq">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <span>Frequently Asked Questions</span>
+          <h2>Frequently Asked Questions</h2>
+
+        </div>
+
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-10">
+
+            <div class="accordion accordion-flush" id="faqlist">
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
+                    <i class="bi bi-question-circle question-icon"></i>
+                    How do I use INTRAVIEWER ?
+                  </button>
+                </h3>
+                <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                  <div class="accordion-body">
+                   <p>  Step 1: Select interview questions from the library</p>
+                   <p>  Step 2: Optimise your responses using expert tips and sentiment analysis</p>
+                   <p>  Step 3: Record yourself and get an Emotion Intelligence Index</p>
+                   <p>  Step 4: Playback to indentify areas of improvement and track progress </p>                 </div>
+                </div>
+              </div><!-- # Faq item-->
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
+                    <i class="bi bi-question-circle question-icon"></i>
+                    Can I use INTRAVIEWER on my phone?
+                  </button>
+                </h3>
+                <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                  <div class="accordion-body">
+                    Yes. INTRAVIEWER is a browser based app and can run on your phone, tablet or laptop ONLY on a Google Chrome browser.                  </div>
+                </div>
+              </div><!-- # Faq item-->
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
+                    <i class="bi bi-question-circle question-icon"></i>
+                    Can I use INTRAVIEWER on my phone?
+                  </button>
+                </h3>
+                <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                  <div class="accordion-body">
+                    Yes. INTRAVIEWER is a browser based app and can run on your phone, tablet or laptop ONLY on a Google Chrome browser.                  </div>
+                </div>
+              </div><!-- # Faq item-->
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4">
+                    <i class="bi bi-question-circle question-icon"></i>
+                    Can I use INTRAVIEWER on my phone?
+                  </button>
+                </h3>
+                <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                  <div class="accordion-body">
+                    Yes. INTRAVIEWER is a browser based app and can run on your phone, tablet or laptop ONLY on a Google Chrome browser.                  </div>
+                </div>
+              </div><!-- # Faq item-->
+
+          
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Frequently Asked Questions Section -->
+{% endblock  %}
+
+  </main><!-- End #main -->

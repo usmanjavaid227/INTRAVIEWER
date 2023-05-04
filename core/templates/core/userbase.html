@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Dashboard - {% block title %}title{% endblock title %}</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static "core/UserAssets/img/favicon2.ico" %}" rel="icon">
+  <link href="{% static "core/UserAssets/img/apple-touch-icon.png" %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static "core/UserAssets/vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+  <link href="{% static "core/UserAssets/vendor/bootstrap-icons/bootstrap-icons.css" %}" rel="stylesheet">
+  <link href="{% static "core/UserAssets/vendor/boxicons/css/boxicons.min.css" %}" rel="stylesheet">
+  <link href="{% static "core/UserAssets/vendor/quill/quill.snow.css" %}" rel="stylesheet">
+  <link href="{% static "core/UserAssets/vendor/quill/quill.bubble.css" %}" rel="stylesheet">
+  <link href="{% static "core/UserAssets/vendor/remixicon/remixicon.css" %}" rel="stylesheet">
+  <link href="{% static "core/UserAssets/vendor/simple-datatables/style.css" %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static "core/UserAssets/css/style.css" %}" rel="stylesheet">
+
+</head>
+<body>
+
+<main id="main" class="main">
+{% block Header_Section %}
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="userindex.html" class="logo d-flex align-items-center">
+        <img src="{% static "core/UserAssets/img/logo.svg" %}"  alt="">
+        <span class="d-none d-lg-block">INTRAVIEWER</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
+
+        <li class="nav-item dropdown">
+
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-bell"></i>
+            <span class="badge bg-primary badge-number">2</span>
+          </a><!-- End Notification Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+            <li class="dropdown-header">
+              You have 2 new notifications
+              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-exclamation-circle text-warning"></i>
+              <div>
+                <h4>New User Added</h4>
+                <p>New user added as Ali.</p>
+                <p>30 min. ago</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-person"></i>
+              <div>
+                <h4>Aneeq Give interview </h4>
+                <p>Interview Taken</p>
+                <p>1 hr. ago</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li class="dropdown-footer">
+              <a href="#">Show all notifications</a>
+            </li>
+
+          </ul><!-- End Notification Dropdown Items -->
+
+        </li><!-- End Notification Nav -->
+
+        <li class="nav-item dropdown">
+
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-chat-left-text"></i>
+            <span class="badge bg-success badge-number">1</span>
+          </a><!-- End Messages Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
+            <li class="dropdown-header">
+              You have 1 new messages
+              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="message-item">
+              <a href="#">
+                <img src="{% static "core/UserAssets/img/messages-1.jpg" %}"  alt="" class="rounded-circle">
+                <div>
+                  <h4>Maria Hudson</h4>
+                  <p>I am facing a problem while updating my profile-img.</p>
+                  <p>4 hrs. ago</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+
+
+            <li class="dropdown-footer">
+              <a href="#">Show all messages</a>
+            </li>
+
+          </ul><!-- End Messages Dropdown Items -->
+
+        </li><!-- End Messages Nav -->
+
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="{% static "core/UserAssets/img/profile-img.jpg" %}"  alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">Ali Hamza</span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>Ali Hamza</h6>
+              <span>Web Designer</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="{% url 'userprofile' %}">
+                <i class="bi bi-person"></i>
+                <span>My Profile</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <i class="bi bi-gear"></i>
+                <span>Account Settings</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <i class="bi bi-question-circle"></i>
+                <span>Need Help?</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+{% endblock Header_Section %}
+
+{% block Sidebar %}
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href={% url 'userindex' %}>
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href={% url 'interview' %}>
+          <i class="bi bi-person-bounding-box"></i>
+          <span>Take Interview</span>
+        </a>
+      </li><!-- Interview Page Nav -->
+
+  
+      <li class="nav-item">
+        <a class="nav-link collapsed" href={% url 'feedback' %}>
+          <i class="bi bi-chat-left-text"></i>
+          <span>Feedback</span>
+        </a>
+      </li><!-- Feedback Page Nav -->
+
+      <!-- <li class="nav-heading">Pages</li> -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href={% url 'userprofile' %}>
+          <i class="bi bi-person"></i>
+          <span>Profile</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href={% url 'history' %}>
+          <i class="bi bi-exclamation-circle"></i>
+          <span>History</span>
+        </a>
+      </li><!-- History Page Nav -->
+
+    </ul>
+
+  </aside><!-- End Sidebar-->
+{% endblock Sidebar %}
+
+{% block Dashboard %}{% endblock Dashboard %}
+{% block Interview %}{% endblock Interview %}
+{% block Profile_Section %}{% endblock Profile_Section %}
+
+
+
+
+</main>
+
+
+  
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>INTRAVIEWER</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static "core/UserAssets/vendor/apexcharts/apexcharts.min.js" %}"></script>
+  <script src="{% static "core/UserAssets/vendor/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+  <script src="{% static "core/UserAssets/vendor/chart.js/chart.min.js" %}"></script>
+  <script src="{% static "core/UserAssets/vendor/echarts/echarts.min.js" %}"></script>
+  <script src="{% static "core/UserAssets/vendor/quill/quill.min.js" %}"></script>
+  <script src="{% static "core/UserAssets/vendor/simple-datatables/simple-datatables.js" %}"></script>
+  <script src="{% static "core/UserAssets/vendor/tinymce/tinymce.min.js" %}"></script>
+  <script src="{% static "core/UserAssets/vendor/php-email-form/validate.js" %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static "core/UserAssets/js/main.js" %}"></script>
+
+</body>
+
+</html>
