@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Card,Faq
+from .models import Card,Faq,Team
 
 # Create your views here.
 def index(request):
@@ -11,7 +11,8 @@ def index(request):
 
 def about(request):
     faq=Faq.objects.all()
-    context={'faq':faq}
+    team=Team.objects.all()
+    context={'faq':faq,'team':team}
     return render(request,'core/about.html',context)
 def contact(request):
     return render(request,'core/contact.html')
