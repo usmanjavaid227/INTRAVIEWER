@@ -25,3 +25,6 @@ def login(request):
 
 def register(request):
     return render(request,'core/register.html')
+
+def privacy(request):
+    return render(request,'core/privacy_policy.html')
