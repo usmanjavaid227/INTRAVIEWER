@@ -1,8 +1,13 @@
 from django.shortcuts import render
+from .models import Card
 
 # Create your views here.
 def index(request):
-    return render(request,'core/index.html')
+    cards = Card.objects.all()
+    context = {'cards': cards}
+    return render(request,'core/index.html',context)
+
+
 def about(request):
     return render(request,'core/about.html')
 def contact(request):
@@ -14,7 +19,9 @@ def history(request):
 def interview(request):
     return render(request,'core/interview.html')
 def services(request):
-    return render(request,'core/services.html')
+    cards = Card.objects.all()
+    context = {'cards': cards}
+    return render(request,'core/services.html',context)
 def userindex(request):
     return render(request,'core/userindex.html')
 def userprofile(request):

@@ -71,85 +71,38 @@
 {% endblock Featured_1 %} 
 
     
+
 {% block Services_Section %}
+
   <!-- ======= Services Section ======= -->
   <section id="service" class="services pt-0">
     <div class="container" data-aos="fade-up">
-
-      <div class="section-header">
-        <span>Why INTRAVIEWER</span>
-        <h2>Why INTRAVIEWER ?</h2>
-      </div>
-          <div class="row justify-content-center">
-            <div class="col-lg-8 text-center">
+        <div class="section-header">
+          <span>Why INTRAVIEWER</span>
+          <h2>Why INTRAVIEWER ?</h2>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
               <p class="lead">Most job seekers are unable to give their best in interview due to anxiety and nervousness. INTRAVIEWER provide a platform to gain confidence through practice and real-time feedback.Prepare you for your next interview to get you more job offers.</p>
-            </div>
-      <div class="row gy-4">
-
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="card">
-            <div class="card-img">
-              <img src="{% static "core/VisitorAssets/img/First Impression.jpg" %}" alt="" class="img-fluid">
-            </div>
-            <h3><a href="#" class="stretched-link">First Impression</a></h3>
-            <p>Studies show that 55% of first impressions in interviews are based on non-verbal cues like facial expressions.People have less control over facial expressions than their verbal communication</p>
           </div>
-        </div><!-- End Card Item -->
-
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="card">
-            <div class="card-img">
-              <img src="{% static "core/VisitorAssets/img/confidence.jpg" %}" alt="" class="img-fluid">
-            </div>
-            <h3><a href="#" class="stretched-link">confidance</a></h3>
-            <p>This shows how confident a candidate is based on the analysis of body movement, stress, anxiety, voice tone and posture.</p>
+        </div>
+        <div class="row gy-4">
+          {% for card in cards %}
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:100 }}">
+              <div class="card">
+                <div class="card-img">
+                    <img src="{{ card.image.url }}" alt="" class="img-fluid">
+                </div>
+                <h3><a href="#" class="stretched-link">{{ card.title }}</a></h3>
+                <p>{{ card.description }}</p>
+              </div>
           </div>
-        </div><!-- End Card Item -->
-
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="card">
-            <div class="card-img">
-              <img src="{% static "core/VisitorAssets/img/communaction.jpg" %}" alt="" class="img-fluid">
-            </div>
-            <h3><a href="#" class="stretched-link">Communication</a></h3>
-            <p>This is more about the candidate's speaking style. Is the voice too loud or low? Are they speaking too fast or slow? Are they taking too many long pauses? This will help you get the details on their communication skills.</p>
-          </div>
-        </div><!-- End Card Item -->
-
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="card">
-            <div class="card-img">
-              <img src="{% static "core/VisitorAssets/img/behaviour analysis.jpg" %}" alt="" class="img-fluid">
-            </div>
-            <h3><a href="#" class="stretched-link">Behavior analysis</a></h3>
-            <p>You can find more about the body movements, like eye movement, head movement and more. We can find out if a candidate is reading the answer on the screen using our AI.</p>
-          </div>
-        </div><!-- End Card Item -->
-
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-          <div class="card">
-            <div class="card-img">
-              <img src="{% static "core/VisitorAssets/img/emotion.jpg" %}" alt="" class="img-fluid">
-            </div>
-            <h3><a href="#" class="stretched-link">Emotion intelligance</a></h3>
-            <p>Recruiters assess Emotional Intelligence to identify the candidates with the right attitude & mindset PROCESS</p>
-          </div>
-        </div><!-- End Card Item -->
-
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-          <div class="card">
-            <div class="card-img">
-              <img src="{% static "core/VisitorAssets/img/professional.jpg" %}" alt="" class="img-fluid">
-            </div>
-            <h3><a href="#" class="stretched-link">professionlism</a></h3>
-            <p>Develop your professional look, Which enhance your positive attitude.</p>
-          </div>
-        </div><!-- End Card Item -->
-
-      </div>
-
+          {% endfor %}
+        </div>
     </div>
-  </section><!-- End Services Section -->
+  </section>
+  <!-- End Services Section -->
+
 {% endblock Services_Section %}
 
 {% block How_It_Works %}

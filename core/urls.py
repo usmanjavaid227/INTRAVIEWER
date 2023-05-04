@@ -15,7 +15,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from core import views
-from django.views.generic import TemplateView
+from django.conf.urls.static import static
+from mainapp import settings
 
 
 urlpatterns = [
@@ -33,5 +34,5 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('privacy/', views.privacy, name='privacy'),
      
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
