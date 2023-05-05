@@ -1,38 +1,22 @@
-"""intraviewer URL Configuration
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
-from core import views
+from core.views import (IndexView, AboutView, ContactView, FeedbackView, HistoryView,
+                        InterviewView, ServicesView, UserIndexView, UserProfileView,
+                        LoginView, RegisterView, PrivacyView)
 from django.conf.urls.static import static
 from mainapp import settings
 
-
 urlpatterns = [
-    
-    path('', views.index,name='index'),
-    path('about/', views.about, name='about'),
-    path('contact/', views.contact, name='contact'),
-    path('feedback/', views.feedback, name='feedback'),
-    path('history/', views.history, name='history'),
-    path('interview/', views.interview, name='interview'),
-    path('services/', views.services, name='services'),
-    path('userindex/', views.userindex, name='userindex'),
-    path('userprofile/', views.userprofile, name='userprofile'),
-    path('login/', views.login, name='login'),
-    path('register/', views.register, name='register'),
-    path('privacy/', views.privacy, name='privacy'),
-     
+    path('', IndexView.as_view(), name='index'),
+    path('about/', AboutView.as_view(), name='about'),
+    path('contact/', ContactView.as_view(), name='contact'),
+    path('feedback/', FeedbackView.as_view(), name='feedback'),
+    path('history/', HistoryView.as_view(), name='history'),
+    path('interview/', InterviewView.as_view(), name='interview'),
+    path('services/', ServicesView.as_view(), name='services'),
+    path('userindex/', UserIndexView.as_view(), name='userindex'),
+    path('userprofile/', UserProfileView.as_view(), name='userprofile'),
+    path('login/', LoginView.as_view(), name='login'),
+    path('register/', RegisterView.as_view(), name='register'),
+    path('privacy/', PrivacyView.as_view(), name='privacy'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
