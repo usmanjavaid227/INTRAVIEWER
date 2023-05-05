@@ -1,11 +1,12 @@
 from django.shortcuts import render
-from .models import Card,Faq,Team
+from .models import Card,Faq,Team,Testimonial
 
 # Create your views here.
 def index(request):
     cards = Card.objects.all()
     faq= Faq.objects.all()
-    context = {'cards': cards,'faq':faq}
+    testimonial=Testimonial.objects.all()
+    context = {'cards': cards,'faq':faq,'testimonial':testimonial}
     return render(request,'core/index.html',context)
 
 
