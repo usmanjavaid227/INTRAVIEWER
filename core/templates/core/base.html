@@ -50,10 +50,10 @@
         <ul>
           <!--<li><a href="index.html" class="active">Home</a></li>  -->
           {% comment %} <li><a href="{% url 'index' %}" {% if request.path == '/' %}class="active"{% endif %}>Home</a></li> {% endcomment %}
-          <li><a href={% url 'about' %} {% if request.path == '/about' %}class="active"{% endif %}>About</a></li>
-          <li><a href={% url 'services'%} {% if request.path == '/services' %}class="active"{% endif %} >How it works</a></li>
+          <li><a href={% url 'about' %} {% if request.path == '/about/' %}class="active"{% endif %}>About</a></li>
+          <li><a href={% url 'services'%} {% if request.path == '/services/' %}class="active"{% endif %} >How it works</a></li>
          
-          <li><a href={% url 'contact'%} {% if request.path == '/contact' %}class="active"{% endif %} >Contact Us</a></li>
+          <li><a href={% url 'contact'%} {% if request.path == '/contact/' %}class="active"{% endif %} >Contact Us</a></li>
           <li><a class="NavButton" href={% url 'register' %} >Start for Free</a></li>
           <li><a href={% url 'login' %} ><i class="fa fa-sign-in px-2" aria-hidden="true"></i> login</a></li>
         </ul>
