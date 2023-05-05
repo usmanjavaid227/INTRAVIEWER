@@ -38,7 +38,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="userindex.html" class="logo d-flex align-items-center">
+      <a href={% url 'userindex' %} class="logo d-flex align-items-center">
         <img src="{% static "core/UserAssets/img/logo.svg" %}"  alt="">
         <span class="d-none d-lg-block">INTRAVIEWER</span>
       </a>
@@ -167,7 +167,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="{% url 'userprofile' %}">
+              <a class="dropdown-item d-flex align-items-center" href="{% url 'userprofile' %} {% if request.path == '/userprofile' %}class="active"{% endif %}">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
@@ -218,15 +218,15 @@
 
     <ul class="sidebar-nav" id="sidebar-nav">
 
-      <li class="nav-item">
-        <a class="nav-link " href={% url 'userindex' %}>
+      <li class="nav-item" >
+        <a class="nav-link collapsed" href={% url 'userindex' %}>
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href={% url 'interview' %}>
+        <a class="nav-link collapsed" href={% url 'interview' %} >
           <i class="bi bi-person-bounding-box"></i>
           <span>Take Interview</span>
         </a>
@@ -234,7 +234,7 @@
 
   
       <li class="nav-item">
-        <a class="nav-link collapsed" href={% url 'feedback' %}>
+        <a class="nav-link collapsed" href={% url 'feedback' %} >
           <i class="bi bi-chat-left-text"></i>
           <span>Feedback</span>
         </a>
@@ -261,6 +261,7 @@
 
   </aside><!-- End Sidebar-->
 {% endblock Sidebar %}
+
 
 {% block Dashboard %}{% endblock Dashboard %}
 {% block Interview %}{% endblock Interview %}
