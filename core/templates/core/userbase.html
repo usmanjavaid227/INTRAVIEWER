@@ -33,6 +33,7 @@
 <body>
 
 <main id="main" class="main">
+
 {% block Header_Section %}
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
@@ -40,7 +41,7 @@
     <div class="d-flex align-items-center justify-content-between">
       <a href={% url 'userindex' %} class="logo d-flex align-items-center">
         <img src="{% static "core/UserAssets/img/logo.svg" %}"  alt="">
-        <span class="d-none d-lg-block">INTRAVIEWER</span>
+        <span class="d-none d-lg-block" style="font-family: 'Inter', sans-serif; font-size: 30px; font-weight: 700;">INTRAVIEWER</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
