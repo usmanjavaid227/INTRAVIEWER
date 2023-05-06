@@ -2,6 +2,8 @@ from django.views import View
 from django.shortcuts import render
 from .models import Card, Faq, Team, Testimonial
 from django.contrib.auth.models import User
+from django.shortcuts import redirect
+
 
 class IndexView(View):
     def get(self, request):
@@ -48,8 +50,15 @@ class ServicesView(View):
 
 
 class UserIndexView(View):
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('login') # replace 'login' with the name of your login page url
+        return super().dispatch(request, *args, **kwargs)
+
     def get(self, request):
-        return render(request, 'core/userindex.html')
+        user = User.objects.get(username=request.user.username)
+        context = {'user': user}
+        return render(request, 'core/userindex.html', context)
 
 
 class UserProfileView(View):

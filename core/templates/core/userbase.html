@@ -48,7 +48,15 @@
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
-        <li class="nav-item dropdown">
+      <div class='logout'>
+        <li  class="text-dark px-3">
+          <a href={% url 'logout' %}>
+            <i class="bi bi-box-arrow-right"></i><span class="text-dark px-2" style="font-size: 16px;">Logout</span>
+          </a>
+        </li>
+      </div>
+
+         {% comment %} <li class="nav-item dropdown">
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-bell"></i>
@@ -95,7 +103,7 @@
 
           </ul><!-- End Notification Dropdown Items -->
 
-        </li><!-- End Notification Nav -->
+        </li><!-- End Notification Nav --> 
 
         <li class="nav-item dropdown">
 
@@ -184,7 +192,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href=#>
+              <a class="dropdown-item d-flex align-items-center" href={% url 'logout' %}>
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
@@ -194,7 +202,7 @@
         </li><!-- End Profile Nav -->
 
       </ul>
-    </nav><!-- End Icons Navigation -->
+    </nav><!-- End Icons Navigation --> {% endcomment %}
 
   </header><!-- End Header -->
 {% endblock Header_Section %}
