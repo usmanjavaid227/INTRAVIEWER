@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User - {% block title %}{% endblock title %}</title>
+
+      <!-- Favicons -->
+  <link href="{% static "users/img/favicon-32x32.png" %}" rel="icon">
+  <link href="{% static "users/img/favicon.ico" %}" rel="apple-touch-icon">
+
+    <link href="{% static "users/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+    
+</head>
+<body>
+  
+    {% block content %}
+
+    
+    {% endblock content %}
+</body>
+
+<script src="{% static "users/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+
+</html>

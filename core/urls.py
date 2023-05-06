@@ -1,8 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from core.views import (IndexView, AboutView, ContactView, FeedbackView, HistoryView,
-                        InterviewView, ServicesView, UserIndexView, UserProfileView,
-                        LoginView, RegisterView, PrivacyView)
+                        InterviewView, ServicesView, UserIndexView, UserProfileView, PrivacyView)
 from django.conf.urls.static import static
 from mainapp import settings
 
@@ -16,7 +15,5 @@ urlpatterns = [
     path('services/', ServicesView.as_view(), name='services'),
     path('userindex/', UserIndexView.as_view(), name='userindex'),
     path('userprofile/', UserProfileView.as_view(), name='userprofile'),
-    path('login/', LoginView.as_view(), name='login'),
-    path('register/', RegisterView.as_view(), name='register'),
     path('privacy/', PrivacyView.as_view(), name='privacy'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,6 +1,7 @@
 from django.views import View
 from django.shortcuts import render
 from .models import Card, Faq, Team, Testimonial
+from django.contrib.auth.models import User
 
 class IndexView(View):
     def get(self, request):
@@ -55,15 +56,12 @@ class UserProfileView(View):
     def get(self, request):
         return render(request, 'core/userprofile.html')
 
+# class UserProfileView(View):
+#     def get(self, request):
+#         user = User.objects.get(username=request.user.username)
+#         context = {'user': user}
+#         return render(request, 'core/userprofile.html', context)
 
-class LoginView(View):
-    def get(self, request):
-        return render(request, 'core/login.html')
-
-
-class RegisterView(View):
-    def get(self, request):
-        return render(request, 'core/register.html')
 
 
 class PrivacyView(View):
