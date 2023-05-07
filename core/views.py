@@ -6,6 +6,7 @@ from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
 from .forms import ContactForm
+from .forms import UserForm, ProfileForm
 from django.contrib import messages
 
 
@@ -92,7 +93,7 @@ class UserIndexView(View):
         if not request.user.is_authenticated:
             return redirect('login') # replace 'login' with the name of your login page url
         return super().dispatch(request, *args, **kwargs)
-
+    
     def get(self, request):
         user = User.objects.get(username=request.user.username)
         context = {'user': user}
@@ -100,19 +101,33 @@ class UserIndexView(View):
 
 
 class UserProfileView(View):
+
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
             return redirect('login') # replace 'login' with the name of your login page url
         return super().dispatch(request, *args, **kwargs)
 
+class ProfileView(View):
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('login') 
+        return super().dispatch(request, *args, **kwargs)
     def get(self, request):
-        return render(request, 'core/userprofile.html')
-
-# class UserProfileView(View):
-#     def get(self, request):
-#         user = User.objects.get(username=request.user.username)
-#         context = {'user': user}
-#         return render(request, 'core/userprofile.html', context)
+        user_form = UserForm(instance=request.user)
+        profile_form = ProfileForm(instance=request.user.profile)
+        return render(request, 'core/userprofile.html', {'userprofile': user_form, 'profileform': profile_form})
+    
+    def post(self, request):
+        user_form = UserForm(request.POST, instance=request.user)
+        profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, 'Your profile was successfully updated!')
+            return redirect('userprofile')
+        else:
+            messages.error(request, 'Please correct the error below.')
+            return render(request, 'core/userprofile.html', {'userform': user_form, 'profileform': profile_form})
 
 
 
