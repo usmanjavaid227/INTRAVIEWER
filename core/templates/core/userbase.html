@@ -46,20 +46,8 @@
       <i class="bi bi-list toggle-sidebar-btn"></i> 
     </div><!-- End Logo -->
 
-    {% comment %} welcome message to user {% endcomment %}
-        <div class="container text-center mt-2 w-50">
-            <div class="alert alert-success" role="alert" id="welcome-message">
-                <i class="bi bi-person-check px-3" style="font-size: 24px;"></i> Welcome {{ request.user.username }}
-            </div>
-        </div>  
-        <script>
-          setTimeout(function(){
-            document.getElementById("welcome-message").style.display = "none";
-          }, 5000);
-        </script>
-        {% comment %} end welcome {% endcomment %}
-      </div>
-
+   {% block welcome %}
+   {% endblock welcome %}
    
     <nav class="header-nav ms-auto px-3">
       <ul class="d-flex align-items-center">
