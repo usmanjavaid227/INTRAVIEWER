@@ -3,6 +3,10 @@ from django.shortcuts import render
 from .models import Card, Faq, Team, Testimonial
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
+from django.http import HttpResponseRedirect
+from django.core.mail import send_mail
+from .forms import ContactForm
+from django.contrib import messages
 
 
 class IndexView(View):
@@ -24,7 +28,26 @@ class AboutView(View):
 
 class ContactView(View):
     def get(self, request):
-        return render(request, 'core/contact.html')
+        form = ContactForm()
+        return render(request, 'core/contact.html', {'form': form})
+
+    def post(self, request):
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            send_mail(
+                f'New contact form submission from {name}',
+                f'{message}\n\nFrom: {name} ({email})',
+                f'{email}', # replace with your email address
+                ['usmanjavaid227@gmail.com'], # replace with the recipient email address(es)
+                fail_silently=False,
+            )
+            message = messages.success(request, 'Your message has been sent!')
+            return HttpResponseRedirect('/contact/', {'message': message})
+        else:
+            return render(request, 'core/contact.html', {'form': form})
 
 
 class FeedbackView(View):
