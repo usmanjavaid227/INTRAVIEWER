@@ -43,15 +43,30 @@
         <img src="{% static "core/UserAssets/img/logo.svg" %}"  alt="">
         <span class="d-none d-lg-block" style="font-family: 'Inter', sans-serif; font-size: 30px; font-weight: 700;">INTRAVIEWER</span>
       </a>
-      <i class="bi bi-list toggle-sidebar-btn"></i>
+      <i class="bi bi-list toggle-sidebar-btn"></i> 
     </div><!-- End Logo -->
 
-    <nav class="header-nav ms-auto">
+    {% comment %} welcome message to user {% endcomment %}
+        <div class="container text-center mt-2 w-50">
+            <div class="alert alert-success" role="alert" id="welcome-message">
+                <i class="bi bi-person-check px-3" style="font-size: 24px;"></i> Welcome {{ request.user.username }}
+            </div>
+        </div>  
+        <script>
+          setTimeout(function(){
+            document.getElementById("welcome-message").style.display = "none";
+          }, 5000);
+        </script>
+        {% comment %} end welcome {% endcomment %}
+      </div>
+
+   
+    <nav class="header-nav ms-auto px-3">
       <ul class="d-flex align-items-center">
       <div class='logout'>
-        <li  class="text-dark px-3">
+        <li  class="text-dark ">
           <a href={% url 'logout' %}>
-            <i class="bi bi-box-arrow-right"></i><span class="text-dark px-2" style="font-size: 16px;">Logout</span>
+            <i class="bi bi-box-arrow-right px-2"></i><spa style="font-size: 16px;">Logout</span>
           </a>
         </li>
       </div>
