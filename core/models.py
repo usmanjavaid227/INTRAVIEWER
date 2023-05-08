@@ -43,7 +43,7 @@ class Testimonial(models.Model):
         return self.name
     
 
-countries = (
+COUNTRY_CHOICES = (
     ('AF', 'Afghanistan'),
     ('AL', 'Albania'),
     ('BZ', 'Belize'),
@@ -69,17 +69,22 @@ countries = (
     ('BD', 'Bangladesh'),
 
 )
+GENDER_CHOICE = (
+    ('M',"Male"),
+    ('F',"Female")
+)
 
 class Profile(models.Model):
     user = models.OneToOneField('auth.User', on_delete=models.CASCADE)
-    country = models.CharField(max_length=2, choices=countries, default='US')
+    gender = models.CharField(max_length=10, choices=GENDER_CHOICE, blank=True)
+    country = models.CharField(max_length=50, choices=COUNTRY_CHOICES, blank=True)
     destination = models.CharField(max_length=50, blank=True)
     linkedin_url = models.URLField(blank=True)
     bio = models.TextField(max_length=500, blank=True)
     date_of_birth = models.DateField(blank=True, null=True)
     Dream_Job = models.CharField(max_length=50, blank=True)
     phone = models.CharField(max_length=30, blank=True)
-    image = models.ImageField(upload_to='profile_pics', default='', blank=True)
+    image = models.ImageField(upload_to='profile_pics' , blank=True)
     address= models.CharField(max_length=100, blank=True)
 
 

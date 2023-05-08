@@ -128,7 +128,7 @@ class ProfileView(View):
         else:
             messages.error(request, 'Please correct the error below.')
             return render(request, 'core/userprofile.html', {'userform': user_form, 'profileform': profile_form})
-
+        
 
 
 class PrivacyView(View):

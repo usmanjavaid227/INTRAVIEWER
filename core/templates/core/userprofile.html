@@ -30,7 +30,7 @@
                           <img src="{% static "core/UserAssets/img/profile-img.jpg" %}" alt="Profile" class="rounded-circle">
                       {% endif %}
               
-                      <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+                      <h2>{{ user.username }}</h2>
                       <h3>{{ user.profile.destination }}</h3>
               
                       <div class="social-links mt-2">
@@ -71,92 +71,20 @@
           <div class="tab-pane  profile-edit pt-3 active" id="profile-edit">
 
                 <!-- Profile Edit Form -->
-                <form method="POST" enctype="multipart/form-data">
+                <form method="post" enctype="multipart/form-data">
                   {% csrf_token %}
-                  <div class="row mb-3">
-                    <label for="image" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
-                    <div class="col-md-8 col-lg-9">
-                      {% if user.profile.image %}
-                        <img src="{{ user.profile.image.url }}" alt="Profile">
-                      {% else %}
-                        <img src="{% static 'core/UserAssets/img/profile-img.jpg' %}" alt="Profile">
-                      {% endif %}
-                      <div class="pt-2">
-                        <input type="file" name="image" id="image">
+                  {% if messages %}
+                  {% for message in messages %}
+                      <div class="alert alert-{{message.tags}} mb-5" role="alert">
+                          {{message}}
                       </div>
-                    </div>
-                  </div>
+                  {% endfor %}
+              {% endif %}
+                  {{ userprofile.as_p }}
+                  {{ profileform.as_p }}
+                  <button type="submit" class="btn btn-primary">Save changes</button>
+              </form>
               
-                  <div class="row mb-3">
-                    <label for="username" class="col-md-4 col-lg-3 col-form-label">Username</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="username" type="text" class="form-control" id="username" value="{{ user.username }}">
-                    </div>
-                  </div>
-
-              
-                  <div class="row mb-3">
-                    <label for="email" class="col-md-4 col-lg-3 col-form-label">Email</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="email" type="email" class="form-control" id="email" value="{{ user.email }}">
-                    </div>
-                  </div>
-              
-                  <div class="row mb-3">
-                    <div class="col-lg-3 col-md-4 label">Country</div>
-                    <div class="col-lg-9 col-md-8">
-                        <select name="country" class="form-control">
-                            {% for code, name in userprofile.country.field.choices %}
-                                <option value="{{ code }}" {% if code == userprofile.country.value %}selected{% endif %}>{{ name }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                </div>
-              
-                  <div class="row mb-3">
-                    <label for="address" class="col-md-4 col-lg-3 col-form-label">Address</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="address" type="text" class="form-control" id="address" value="{{ user.profile.address }}">
-                    </div>
-                  </div>
-              
-                  <div class="row mb-3">
-                    <label for="phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="phone" type="text" class="form-control" id="phone" value="{{ user.profile.phone }}">
-                    </div>
-                  </div>
-              
-                  <div class="row mb-3">
-                    <label for="linkedin_url" class="col-md-4 col-lg-3 col-form-label">Linkedin Profile</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="linkedin_url" type="text" class="form-control" id="linkedin_url" value="{{ user.profile.linkedin_url }}">
-                    </div>
-                  </div>
-              
-                  <div class="row mb-3">
-                    <label for="bio" class="col-md-4 col-lg-3 col-form-label">Bio</label>
-                    <div class="col-md-8 col-lg-9">
-                      <textarea name="bio" class="form-control" id="bio" rows="5">{{ user.profile.bio }}</textarea>
-                    </div>
-                  </div>
-
-                  <div class="row mb-3">
-                    <label for="Dream_Job" class="col-md-4 col-lg-3 col-form-label">Dream Job</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="Dream_Job" type="text" class="form-control" id="Dream_Job" value="{{ user.profile.Dream_Job }}">
-                    </div>
-                  </div>
-
-                  <div class="row mb-3">
-                    <label for="destination" class="col-md-4 col-lg-3 col-form-label">Destination</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="destination" type="text" class="form-control" id="destination" value="{{ user.profile.destination }}">
-                    </div>
-                  </div>
-                  
-                  <button type="submit" class="btn btn-primary">Save Changes</button>
-                </form>
 
               </div><!-- End Profile Edit Form -->
               
