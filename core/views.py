@@ -8,6 +8,7 @@ from django.core.mail import send_mail
 from .forms import ContactForm
 from .forms import UserForm, ProfileForm
 from django.contrib import messages
+from django.core.exceptions import ObjectDoesNotExist
 
 
 class IndexView(View):
@@ -100,21 +101,18 @@ class UserIndexView(View):
         return render(request, 'core/userindex.html', context)
 
 
-class UserProfileView(View):
-
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_authenticated:
-            return redirect('login') # replace 'login' with the name of your login page url
-        return super().dispatch(request, *args, **kwargs)
-
 class ProfileView(View):
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
             return redirect('login') 
         return super().dispatch(request, *args, **kwargs)
     def get(self, request):
+        try:
+            profile = request.user.profile
+        except ObjectDoesNotExist:
+            profile = None
         user_form = UserForm(instance=request.user)
-        profile_form = ProfileForm(instance=request.user.profile)
+        profile_form = ProfileForm(instance=profile)
         return render(request, 'core/userprofile.html', {'userprofile': user_form, 'profileform': profile_form})
     
     def post(self, request):
