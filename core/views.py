@@ -72,16 +72,6 @@ class HistoryView(View):
         return render(request, 'core/history.html')
 
 
-class InterviewView(View):
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_authenticated:
-            return redirect('login') # replace 'login' with the name of your login page url
-        return super().dispatch(request, *args, **kwargs)
-
-    def get(self, request):
-        return render(request, 'core/interview.html')
-
-
 class ServicesView(View):
     def get(self, request):
         cards = Card.objects.all()

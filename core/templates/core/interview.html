@@ -20,15 +20,61 @@
         <div class="col-lg-12">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Here You will Take your First interview </h5>
-              <p>
-              It is not available yet but it will be available soon...
-              </p>
+              <h5 class="card-title">Live Interview </h5>
+              <p class="card-text">You will be asked some questions related to you and your knowledge.</p>
+              <div class='row'>
+                <div class="col-lg-6">
+                  <div class="d-flex flex-column align-items-center justify-content-center">
+                    <div class="video-container">
+                      {% for q in questions %}
+                      <div class="question-container">
+                        <video src="{{ q.video_question.url }}" width="340" height="340" controls></video>
+                        <p>Question: {{ q.text }}</p>
+                        <p>Created at: {{ q.created_at }}</p>
+                      </div>
+                      {% endfor %}
+                      <input class="next-button btn btn-primary mt-1" value="Next" type='submit'>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class='col-lg-6 d-flex flex-column align-items-right justify-content-center'>
+                  <i class="bi bi-person-workspace d-flex align-items-center justify-content-center display-1"></i>
+                  <a href="{% url 'interview' %}" class="btn btn-primary mt-5">Start Response</a>
+                  <p class=' my-3'>It will record your Responsis using webcam and microphone, save the recording and analyse the video using sentiment analysis on voice and facial expression using video</p>
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <script>
+      const questionContainers = document.querySelectorAll('.question-container');
+      const nextButton = document.querySelector('.next-button');
+    
+      let currentIndex = 0;
+    
+      function showQuestion(index) {
+        for (let i = 0; i < questionContainers.length; i++) {
+          if (i === index) {
+            questionContainers[i].style.display = 'block';
+          } else {
+            questionContainers[i].style.display = 'none';
+          }
+        }
+      }
+    
+      showQuestion(currentIndex);
+    
+      nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % questionContainers.length;
+        showQuestion(currentIndex);
+      });
+    </script>
+
 {% endblock Interview %}
 
 

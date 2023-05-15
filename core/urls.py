@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.urls import path
 from core.views import (IndexView, AboutView, ContactView, FeedbackView, HistoryView,
-                        InterviewView, ServicesView, UserIndexView, ProfileView, PrivacyView)
+                         ServicesView, UserIndexView, ProfileView, PrivacyView)
+from interview.views import InterviewView
 from django.conf.urls.static import static
 from mainapp import settings
 
