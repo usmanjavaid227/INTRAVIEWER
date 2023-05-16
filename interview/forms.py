@@ -7,3 +7,5 @@ class InterviewForm(forms.ModelForm):
         fields = [ 'video_file']
         labels = {  'video_file': 'Video File' }
 
+        
+

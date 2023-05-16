@@ -32,6 +32,7 @@
                   <th scope="col">Video File</th>
                   <th scope="col">Created At</th>
                   <th scope="col">Analyse</th>
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -41,7 +42,13 @@
                   <td>{{ interview.user }}</td>
                   <td><a href="{{ interview.video_file.url }}">{{ interview.video_file.name }}</a></td>
                   <td>{{ interview.created_at }}</td>
-                  <td><input type="submit" value='Analyse' class='btn btn-success'></td>
+                  <td><input type="submit" value='Analyse' class='btn btn-success btn-sm'></td>
+                  <td>
+                    <form action="{% url 'delete_interview' interview.id %}" method="POST">
+                      {% csrf_token %}
+                      <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                  </td>
                 </tr>
                 {% empty %}
                 <tr>

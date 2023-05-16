@@ -47,6 +47,17 @@ class HistoryView(View):
     def get(self, request):
         interviews = Interview.objects.filter(user=request.user)
         return render(request, 'core/history.html', {'interviews': interviews})
-    
+def delete_interview(request, interview_id):
+    if request.method == 'POST':
+        try:
+            interview = Interview.objects.get(id=interview_id)
+            # Delete the video file from the media storage
+            interview.video_file.delete()
+            # Delete the interview object from the database
+            interview.delete()
+            return redirect('history')  # Redirect to the history page after deletion
+        except Interview.DoesNotExist:
+            pass
+    return redirect('history') 
     
 
