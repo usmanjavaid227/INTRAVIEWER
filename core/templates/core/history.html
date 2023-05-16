@@ -33,7 +33,12 @@
                   <td>{{ interview.user }}</td>
                   <td><a href="{{ interview.video_file.url }}">{{ interview.video_file.name }}</a></td>
                   <td>{{ interview.created_at }}</td>
-                  <td><input type="submit" value='Analyse' class='btn btn-success btn-sm'></td>
+                  <td>
+                    <form action="{% url 'analysis' interview.id %}" method="post">
+                      {% csrf_token %}
+                      <input type="submit" value="Run Analysis" class='btn btn-success btn-sm' >
+                    </form>
+                  </td>
                   <td>
                     <form action="{% url 'delete_interview' interview.id %}" method="POST">
                       {% csrf_token %}

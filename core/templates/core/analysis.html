@@ -1,0 +1,85 @@
+{% extends 'core/userbase.html' %} 
+{% load static %} 
+{% block title %}Analysis Results{% endblock title %} 
+
+{% block content %}
+ <section class="section">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h1 class='font-weight-bold text-center py-3 text-secondary '> Analysis Results</h1>
+
+          <h3>Feedback</h3>
+          <p>{{ analysis.feedback }}</p>
+
+          <h3>Sentiment Score</h3>
+          <p>{{ analysis.sentiment_score }}</p>
+
+          <h3>Emotions</h3>
+          <ul>
+            {% for emotion, score in analysis.emotions.items %}
+            <li>{{ emotion }}: {{ score }}</li>
+            {% endfor %}
+          </ul>
+
+          <h3>Sentiment Score Chart</h3>
+          <canvas id="sentiment-chart"></canvas>
+
+          <h3>Emotions Chart</h3>
+          <canvas id="emotions-chart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+ </section>
+
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ <script>
+  // Sentiment Score Chart
+  var sentimentChart = new Chart(document.getElementById('sentiment-chart'), {
+    type: 'bar',
+    data: {
+      labels: ['Sentiment Score'],
+      datasets: [{
+        label: 'Sentiment Score',
+        data: [{{ analysis.sentiment_score }}],
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 1
+        }
+      }
+    }
+  });
+
+  // Emotions Chart
+  var emotionsChart = new Chart(document.getElementById('emotions-chart'), {
+    type: 'bar',
+    data: {
+      labels: [{% for emotion, score in analysis.emotions.items %}'{{ emotion }}',{% endfor %}],
+      datasets: [{
+        label: 'Emotions',
+        data: [{% for emotion, score in analysis.emotions.items %}{{ score }},{% endfor %}],
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 1
+        }
+      }
+    }
+  });
+ </script>
+{% endblock content %}

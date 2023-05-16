@@ -5,7 +5,7 @@ from interview.models import Interview
 class Analysis(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     interview = models.ForeignKey(Interview, on_delete=models.CASCADE)
-    sentiment_score = models.FloatField(null=True, blank=True)
+    sentiment_score = models.TextField(null=True, blank=True)
     facial_expression = models.CharField(max_length=50, null=True, blank=True)
     feedback = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
