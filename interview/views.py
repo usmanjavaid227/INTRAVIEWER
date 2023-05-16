@@ -4,7 +4,9 @@ from django.shortcuts import redirect
 from questions.models import Question
 from .Recorder import Recorder
 import time
-import cv2
+from django.core.files import File
+from .models import Interview
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -25,4 +27,12 @@ class InterviewView(View):
             recorder.stopRecording()
             recorder.saveRecording()
 
-            return render(request, 'core/history.html')
+            video_path = 'media/temp/interivew.mp4'
+            with open(video_path, 'rb') as video_file:
+                 django_file = File(video_file)
+                 interview = Interview()
+                 interview.user = request.user
+                 interview.video_file.save('interview.mp4', django_file, save=True)
+                 interview.save()
+            
+            return HttpResponse('Video saved to the database')
