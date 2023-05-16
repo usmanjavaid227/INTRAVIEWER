@@ -1,15 +1,61 @@
 {% extends 'core/userbase.html' %}
-{% load static %}
-{% block title %}History{% endblock title %}
-  <main id="main" class="main">
+ {% load static %} 
+ {% block title %}History{% endblock title %}
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>History Page</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="userindex.html">Home</a></li>
+        <li class="breadcrumb-item active">History</li>
+      </ol>
+    </nav>
+  </div>
+  <!-- End Page Title -->
 
-    <div class="pagetitle">
-      <h1>History Page</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="userindex.html">Home</a></li>
-          <li class="breadcrumb-item active">History</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
+  <!-- Start Main Content -->
 
+{% block history %}
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Interview History</h5>
+
+            <!-- Table with stripped rows -->
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">User</th>
+                  <th scope="col">Video File</th>
+                  <th scope="col">Created At</th>
+                  <th scope="col">Analyse</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for interview in interviews %}
+                <tr>
+                  <th scope="row">{{ forloop.counter }}</th>
+                  <td>{{ interview.user }}</td>
+                  <td><a href="{{ interview.video_file.url }}">{{ interview.video_file.name }}</a></td>
+                  <td>{{ interview.created_at }}</td>
+                  <td><input type="submit" value='Analyse' class='btn btn-success'></td>
+                </tr>
+                {% empty %}
+                <tr>
+                  <td colspan="4">No interviews found.</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <!-- End Table with stripped rows -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock history %}
+
+</main>

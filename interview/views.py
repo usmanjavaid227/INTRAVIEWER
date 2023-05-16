@@ -35,4 +35,18 @@ class InterviewView(View):
                  interview.video_file.save('interview.mp4', django_file, save=True)
                  interview.save()
             
-            return HttpResponse('Video saved to the database')
+            return redirect('history')
+
+
+class HistoryView(View):
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('login')
+        return super().dispatch(request, *args, **kwargs)
+    
+    def get(self, request):
+        interviews = Interview.objects.filter(user=request.user)
+        return render(request, 'core/history.html', {'interviews': interviews})
+    
+    
+
