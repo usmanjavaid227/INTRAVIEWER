@@ -11,13 +11,13 @@ import subprocess
 import os
 import ffmpeg
 
-REC_FOLDER = ''
+REC_FOLDER = 'media/temp/'
 
 class Recorder():
     def __init__(self, filename):
         self.filename = filename
-        self.video_thread = self.VideoRecorder(self, REC_FOLDER + time.strftime("%Y%m%d-%H%M%S") + filename)
-        self.audio_thread = self.AudioRecorder(self, REC_FOLDER + time.strftime("%Y%m%d-%H%M%S") + filename)
+        self.video_thread = self.VideoRecorder(self, REC_FOLDER + filename)
+        self.audio_thread = self.AudioRecorder(self, REC_FOLDER  + filename)
 
     def startRecording(self):
         self.video_thread.start()

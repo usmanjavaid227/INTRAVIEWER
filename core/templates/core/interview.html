@@ -40,7 +40,11 @@
                 
                 <div class='col-lg-6 d-flex flex-column align-items-right justify-content-center'>
                   <i class="bi bi-person-workspace d-flex align-items-center justify-content-center display-1"></i>
-                  <a href="{% url 'interview' %}" class="btn btn-primary mt-5">Start Response</a>
+                  <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                      <button type='submit' class='btn btn-primary my-3'>Start Recording</button>
+                  </form>
                   <p class=' my-3'>It will record your Responsis using webcam and microphone, save the recording and analyse the video using sentiment analysis on voice and facial expression using video</p>
                 </div>
 
