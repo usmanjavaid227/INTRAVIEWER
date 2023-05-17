@@ -52,15 +52,6 @@ class ContactView(View):
             return render(request, 'core/contact.html', {'form': form})
 
 
-class FeedbackView(View):
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_authenticated:
-            return redirect('login') # replace 'login' with the name of your login page url
-        return super().dispatch(request, *args, **kwargs)
-
-    def get(self, request):
-        return render(request, 'core/feedback.html')
-
 
 class ServicesView(View):
     def get(self, request):
