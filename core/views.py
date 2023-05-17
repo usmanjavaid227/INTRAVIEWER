@@ -9,6 +9,8 @@ from .forms import ContactForm
 from .forms import UserForm, ProfileForm
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
+from analysis.models import Analysis
+from interview.models import Interview
 
 
 class IndexView(View):
@@ -68,9 +70,14 @@ class UserIndexView(View):
     
     def get(self, request):
         user = User.objects.get(username=request.user.username)
-        context = {'user': user}
-        return render(request, 'core/userindex.html', context)
+        # result of last analysis of user 
+        analysis = Analysis.objects.filter(user=request.user).last()
+        total_interview = Interview.objects.filter(user=request.user).count()
+        interviews = Interview.objects.filter(user=request.user)
 
+        context = {'user': user, 'analysis': analysis, 'total_interview': total_interview, 'interviews': interviews }
+        return render(request, 'core/userindex.html', context)
+    
 
 class ProfileView(View):
     def dispatch(self, request, *args, **kwargs):
