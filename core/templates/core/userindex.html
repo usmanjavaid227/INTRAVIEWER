@@ -43,9 +43,14 @@ setTimeout(function(){
                             </div>
                             <div class="ps-3">
                               <h6>{{ request.user.username }}</h6>
-                              <span class="text small pt-1 fw-bold">{{request.user.designation}}</span> <span class="text-muted small pt-2 ps-1">{{request.user.email}}</span> 
-                               <span class="text-muted small pt-2 ps-1">{{request.user.linkedin_url}}</span>
-        
+                              <span class="text small pt-1 fw-bold">Joined on {{request.user.date_joined.date}}</span>
+                              <span class="text-muted small pt-2 ps-4">{{request.user.email}}</span> 
+                              <span class="text-muted small pt-2 ps-4">
+                                  {% if user.profile.linkedin_url %}
+                                    <a href="{{ user.profile.linkedin_url }}" ><i class="bi bi-linkedin fs-4"></i></a>
+                                  {% endif %}
+                              </span> 
+                              
                             </div>
                           </div>
         
