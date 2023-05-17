@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from core.views import (IndexView, AboutView, ContactView, FeedbackView,
+from core.views import (IndexView, AboutView, ContactView,
                          ServicesView, UserIndexView, ProfileView, PrivacyView)
 from interview.views import InterviewView, HistoryView
 from django.conf.urls.static import static
@@ -12,7 +12,6 @@ urlpatterns = [
     path('', IndexView.as_view(), name='index'),
     path('about/', AboutView.as_view(), name='about'),
     path('contact/', ContactView.as_view(), name='contact'),
-    path('feedback/', FeedbackView.as_view(), name='feedback'),
     path('history/', HistoryView.as_view(), name='history'),
     path('interview/', InterviewView.as_view(), name='interview'),
     path('interview/<int:interview_id>/delete/', views.delete_interview, name='delete_interview'),
