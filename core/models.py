@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -75,7 +76,7 @@ GENDER_CHOICE = (
 )
 
 class Profile(models.Model):
-    user = models.OneToOneField('auth.User', on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     gender = models.CharField(max_length=10, choices=GENDER_CHOICE, blank=True)
     country = models.CharField(max_length=50, choices=COUNTRY_CHOICES, blank=True)
     destination = models.CharField(max_length=50, blank=True)

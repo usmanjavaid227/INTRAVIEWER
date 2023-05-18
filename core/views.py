@@ -11,6 +11,7 @@ from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 from analysis.models import Analysis
 from interview.models import Interview
+from core.models import Profile
 
 
 class IndexView(View):
@@ -75,6 +76,8 @@ class UserIndexView(View):
         total_interview = Interview.objects.filter(user=request.user).count()
         interviews = Interview.objects.filter(user=request.user)
 
+# This is a Django model class for a user profile with various fields such as gender, country,
+# destination, bio, date of birth, dream job, phone, image, and address.
         context = {'user': user, 'analysis': analysis, 'total_interview': total_interview, 'interviews': interviews }
         return render(request, 'core/userindex.html', context)
     
@@ -95,7 +98,11 @@ class ProfileView(View):
     
     def post(self, request):
         user_form = UserForm(request.POST, instance=request.user)
-        profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        try:
+            profile = request.user.profile
+        except ObjectDoesNotExist:
+            profile = Profile(user=request.user)
+        profile_form = ProfileForm(request.POST, request.FILES, instance=profile)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
