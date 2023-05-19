@@ -23,7 +23,7 @@ class InterviewView(View):
     def post(self, request):
             recorder = Recorder('interivew')
             recorder.startRecording()
-            time.sleep(5)
+            time.sleep(30)
             recorder.stopRecording()
             recorder.saveRecording()
 
