@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'interview',
     'questions',
     'analysis',
-    'payment',
    
 ]
 
