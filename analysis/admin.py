@@ -12,13 +12,17 @@ def export_to_csv(modeladmin, request, queryset):
     writer.writerow(['User', 'Created At', 'Sentiment Score', 'Facial Expression', 'Feedback'])
 
     for obj in queryset:
-        writer.writerow([ obj.user.username, obj.created_at, obj.sentiment_score, obj.facial_expression, obj.feedback])
+        writer.writerow([obj.user.username, obj.created_at, obj.sentiment_score, obj.facial_expression, obj.feedback])
 
     return response
+
 export_to_csv.short_description = 'Export to CSV'
 
 class AnalysisAdmin(admin.ModelAdmin):
     list_display = ('user', 'interview', 'created_at', 'sentiment_score', 'facial_expression', 'feedback')
     actions = [export_to_csv]
+
+    class Meta:
+        verbose_name = 'Analysis'
 
 admin.site.register(Analysis, AnalysisAdmin)
