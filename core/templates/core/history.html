@@ -48,7 +48,7 @@
                 </tr>
                 {% empty %}
                 <tr>
-                  <td colspan="4">No interviews found.</td>
+                  <td colspan="4">No interviews found. <a class='btn btn-success mx-5 btn-sm' href="{% url 'interview' %}"> Create one</a></td>
                 </tr>
                 {% endfor %}
               </tbody>
