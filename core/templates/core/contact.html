@@ -3,13 +3,10 @@
 {% block title %}Contact{% endblock title %}
 
 <main id="main">
-  {% block Breadcrumbs %}
+{% block Breadcrumbs %}
   <!-- ======= Breadcrumbs ======= -->
   <div class="breadcrumbs">
-    <div
-      class="page-header d-flex align-items-center"
-      style="background-image: url('VisitorAssets/img/page-header.jpg')"
-    >
+    <div class="page-header d-flex align-items-center" style="background-image: url('VisitorAssets/img/page-header.jpg')">
       <div class="container position-relative">
         <div class="row d-flex justify-content-center">
           <div class="col-lg-6 text-center">
@@ -22,7 +19,7 @@
     <nav>
       <div class="container">
         <ol>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="{% url 'index' %}">Home</a></li>
           <li>Contact</li>
         </ol>
       </div>
@@ -30,7 +27,9 @@
   </div>
   <!-- End Breadcrumbs -->
 
-  {% endblock Breadcrumbs %} {% block Contact %}
+{% endblock Breadcrumbs %}
+
+{% block Contact %}
   <!-- ======= Contact Section ======= -->
   <section id="contact" class="contact">
     <div class="container" data-aos="fade-up">
@@ -107,6 +106,6 @@
     </div>
   </section>
   <!-- End Contact Section -->
-  {% endblock Contact %}
+{% endblock Contact %}
 </main>
 <!-- End #main -->
