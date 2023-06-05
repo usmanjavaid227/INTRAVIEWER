@@ -18,7 +18,9 @@ from django.contrib import admin
 from django.urls import include, path
 from core import views
 
-
+admin.site.site_header = "INTRAVIEWER Admin Panel"
+admin.site.site_title = "INTRAVIEWER Admin Panel"
+admin.site.index_title = "Welcome to INTRAVIEWER Admin Panel"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
