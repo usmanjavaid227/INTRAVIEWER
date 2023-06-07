@@ -11,4 +11,4 @@ class Analysis(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        return self.user.username + " - " + self.interview.title + " - " + str(self.created_at) + " - " + str(self.sentiment_score) + " - " + self.facial_expression + " - " + self.feedback 
+        return self.user.username + " - "  + " - " + str(self.created_at) + " - " + str(self.sentiment_score) + " - " + self.facial_expression + " - " + self.feedback 
