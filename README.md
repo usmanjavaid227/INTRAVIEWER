@@ -1,14 +1,51 @@
-# AI-Enabled Interview Preparation Website
+# INTRAVIEWER
 
-## Overview
-The AI-Enabled Interview Preparation Website is a web application designed to assist users in preparing for job interviews using AI-powered features. The application leverages natural language processing (NLP) techniques and facial expression analysis to provide personalized feedback and guidance to users.
+**INTRODUCTION**
+INTRAVIEWER is an AI-enabled interview preparation website designed to help users excel in job interviews by providing real-time feedback on sentiment analysis of voice and facial emotion detection.
 
-## Features
-- Sentiment Analysis: The application analyzes the sentiment of users' interview responses, providing insights into their emotional tone.
-- Facial Expression Analysis: The system detects and analyzes facial expressions during mock interviews, offering feedback on non-verbal cues and body language.
-- Interview Practice: Users can access a library of interview questions, practice their responses, and receive automated feedback to improve their performance.
-- Performance Analytics: The application tracks users' progress, providing performance metrics and suggestions for areas of improvement.
-- User-Friendly Interface: The website offers an intuitive and user-friendly interface, making it easy for users to navigate and access the available features.
+**PROBLEM STATEMENT**
+The project addresses the challenges faced by job seekers, such as lack of confidence, nervousness, and difficulty simulating real interview scenarios, by offering personalized guidance and feedback.
+
+**THE NEED FOR AI-ENABLED SOLUTIONS**
+- Comprehensive Interview Question Bank
+- Mock Interviews with AI-Powered Feedback
+- Performance Analytics and Insights
+
+**SOLUTION OVERVIEW**
+INTRAVIEWER offers a comprehensive and personalized platform for interview preparation, utilizing modern web technologies such as HTML, CSS, JavaScript, and Django for the back-end.
+
+**PROJECT ARCHITECTURE**
+1. **Front-End**: Built with HTML, CSS, JavaScript, and Bootstrap for interactive user interfaces.
+2. **Back-End**: Utilizes Django for server-side operations, including user authentication and business logic.
+3. **Artificial Intelligence**: Incorporates DeepFace for facial emotion detection and sentiment analysis using Speech_Recognition.
+4. **Database**: Utilizes SQLite for storing user data and interview information.
+5. **API Layers**: Facilitates communication between front-end and back-end functionalities.
+
+**TECHNOLOGIES USED**
+- Python
+- Django
+- Machine Learning Models
+- SQLite
+
+**KEY FEATURES**
+- Interview Question Repository
+- Mock Interviews with AI Evaluation
+- Analytics of Interview Performance
+
+**PROJECT MANAGEMENT**
+The project follows the Waterfall Model, including stages such as requirement gathering, system design, implementation, testing, and continuous improvement.
+
+**FUTURE GOALS**
+- Continuous Improvement of AI Algorithms
+- Expanded Interview Question Database
+- Advanced Interview Practice Features
+- Mobile Application Development
+
+**ACKNOWLEDGMENTS**
+We extend our sincere appreciation to our team members and Mam Nadia for their hard work, expertise, and guidance throughout the project.
+
+**CONCLUSION**
+INTRAVIEWER represents a significant advancement in interview preparation, offering users innovative solutions to enhance their skills and increase their chances of success.
 
 ## Technologies Used
 - Python: Programming language used for backend development and implementing AI algorithms.
